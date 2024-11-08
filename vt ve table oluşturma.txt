@@ -1,0 +1,40 @@
+-- Veritabanı oluştur
+CREATE DATABASE kayit;
+USE kayit;
+
+-- Öğrenci tablosu
+CREATE TABLE ogrenci (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    adi VARCHAR(45),
+    soyadi VARCHAR(45),
+    tckimlik VARCHAR(11),
+    telefon VARCHAR(20),
+    cinsiyet VARCHAR(5),
+    veli_adi VARCHAR(45),
+    velitelefon VARCHAR(20),
+    dogumyeri VARCHAR(45),
+    dogumtarihi DATE,
+    adres TEXT,
+    bolum_id INT,
+    sinif_id INT,
+    okul_id INT,
+    CHECK (CHAR_LENGTH(tckimlik) = 11) -- TCKimlik için 11 karakter kontrolü
+);
+
+-- Sınıf tablosu
+CREATE TABLE sinif (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20)
+);
+
+-- Okul tablosu
+CREATE TABLE okul (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+-- Bölüm tablosu
+CREATE TABLE bolum (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(15)
+);
